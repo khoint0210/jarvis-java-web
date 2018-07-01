@@ -23,6 +23,15 @@ public class JavaBean implements Serializable {
 
     private String avengerName;
 
+    private AvengersDTO avengersDTO;
+
+    public void setAvengersDTO(AvengersDTO avengersDTO) {
+        this.avengersDTO = avengersDTO;
+    }
+
+    public JavaBean() {
+    }
+
     public String getAvengerName() {
         return avengerName;
     }
@@ -106,7 +115,7 @@ public class JavaBean implements Serializable {
         return dao.insertNewEquipment(equipmentsDTO);
     }
 
-    public boolean delete() throws Exception {
+    public boolean deleteEquipment() throws Exception {
         JarvisDAO dao = new JarvisDAO();
         return dao.deleteEquipment(ID);
     }
@@ -125,4 +134,20 @@ public class JavaBean implements Serializable {
         JarvisDAO dao = new JarvisDAO();
         return dao.getAvengerByPrimaryKey(ID);
     }
+
+    public boolean deleteAvenger() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.deleteAvenegr(ID);
+    }
+
+    public boolean insertAvenger() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.insertNewAvenger(avengersDTO);
+    }
+
+    public boolean updateAvenger() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.updateAvenger(avengersDTO);
+    }
+
 }

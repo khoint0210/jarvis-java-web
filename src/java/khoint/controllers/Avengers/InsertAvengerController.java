@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package khoint.controllers.Equipment;
+package khoint.controllers.Avengers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import khoint.beans.JavaBean;
-import khoint.dtos.EquipmentsDTO;
+import khoint.dtos.AvengersDTO;
 
 /**
  *
  * @author khoint0210
  */
-public class EditEquipmentController extends HttpServlet {
+public class InsertAvengerController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
-    private static final String UPDATE = "update-equipment.jsp";
+    private static final String INSERT = "insert-avenger.jsp";
+    private static final String SUCCESS = "root.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,17 +38,30 @@ public class EditEquipmentController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
+            JavaBean bean = new JavaBean();
             String action = request.getParameter("action");
-            if (action.equals("Update Equipment")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                JavaBean bean = new JavaBean();
-                bean.setID(id);
-                EquipmentsDTO reuslt = bean.getEquipmentsByPrimaryKey();
-                request.setAttribute("RESULT_EQUIPMENT", reuslt);
-                url = UPDATE;
+            if (action.equals("Insert New Avenger")) {
+                url = INSERT;
+            } else if (action.equals("Insert Avenger")) {
+                String username = request.getParameter("txtUsername");
+                String password = request.getParameter("txtPassword");
+                String fullname = request.getParameter("txtFullname");
+                String madeUpName = request.getParameter("txtMadeUpName");
+                String role = request.getParameter("txtRole");
+                int status = Integer.parseInt(request.getParameter("txtStatus"));
+                int age = Integer.parseInt(request.getParameter("txtAge"));
+                String avatar = request.getParameter("txtAvatar");
+                String Drawback = request.getParameter("txtDrawBack");
+                AvengersDTO avengerDTO = new AvengersDTO(username, password, fullname, madeUpName, role, avatar, Drawback, status, age);
+                bean.setAvengersDTO(avengerDTO);
+                if (bean.insertAvenger()) {
+                    url = SUCCESS;
+                } else {
+                    request.setAttribute("ERROR", "UNABLE TO INSERT NEW EQUIPMENT");
+                }
             }
         } catch (Exception e) {
-            log("Error at EditEquipmentController : " + e.getMessage());
+            log("Error at CreateNewEquipment : " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

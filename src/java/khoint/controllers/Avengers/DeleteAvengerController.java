@@ -3,23 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package khoint.controllers.Equipment;
+package khoint.controllers.Avengers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import khoint.beans.JavaBean;
-import khoint.dtos.EquipmentsDTO;
 
 /**
  *
  * @author khoint0210
  */
-public class SearchEquipmentController extends HttpServlet {
+public class DeleteAvengerController extends HttpServlet {
+    private static final String SUCCESS = "ListAvengersController";
+
+    private static final String SUCCESS_SEARCH = "SearchAvengerController";
+    
+    private static final String ERROR = "error.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +36,25 @@ public class SearchEquipmentController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String search = request.getParameter("txtSearchEquipment");
+        String url = ERROR;
         try {
+            int avengerID = Integer.parseInt(request.getParameter("txtAvengerID"));
             JavaBean bean = new JavaBean();
-            bean.setEquipmentName(search);
-            List<EquipmentsDTO> result = bean.getEquipmentsLikeName();
-            request.setAttribute("EQUIPMENT", result);
+            bean.setID(avengerID);
+            if (bean.deleteAvenger()) {
+                String searchAvengerName = request.getParameter("txtSearchAvenger");
+                if (searchAvengerName == null) {
+                    url = SUCCESS;
+                } else {
+                    url = SUCCESS_SEARCH;
+                }
+            } else {
+                request.setAttribute("ERROR", "Unable to delete user");
+            }
         } catch (Exception e) {
-            log("Error at SearchEquipmentController : " + e.toString());
+            log("Error At DeleteAvengerController : " + e.toString());
         } finally {
-            request.getRequestDispatcher("root.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

@@ -19,7 +19,33 @@ public class AvengersDTO implements Serializable {
     public AvengersDTO() {
     }
 
-    public AvengersDTO(String username,  String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int status, int age) {
+    public AvengersDTO(String username, String password, String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int status, int age) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.madeUpName = madeUpName;
+        this.role = role;
+        this.avatar = avatar;
+        this.drawback = drawback;
+        this.ID = ID;
+        this.status = status;
+        this.age = age;
+    }
+    
+    public AvengersDTO(String username, String password, String fullname, String madeUpName, String role, String avatar, String drawback, int status, int age) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.madeUpName = madeUpName;
+        this.role = role;
+        this.avatar = avatar;
+        this.drawback = drawback;
+        this.status = status;
+        this.age = age;
+    }
+
+    
+    public AvengersDTO(String username, String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int status, int age) {
         this.username = username;
         this.fullname = fullname;
         this.madeUpName = madeUpName;
@@ -30,7 +56,9 @@ public class AvengersDTO implements Serializable {
         this.status = status;
         this.age = age;
     }
-
+    
+    
+    
     public AvengersDTO(String username, String fullname, String role, int ID) {
         this.username = username;
         this.fullname = fullname;
@@ -124,5 +152,12 @@ public class AvengersDTO implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return "AvengersDTO{" + "username=" + username + ", password=" + password + ", fullname=" + fullname + ", madeUpName=" + madeUpName + ", role=" + role + ", avatar=" + avatar + ", drawback=" + drawback + ", ID=" + ID + ", status=" + status + ", age=" + age + '}';
+    }
+    
+    
     
 }

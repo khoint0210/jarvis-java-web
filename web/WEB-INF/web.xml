@@ -37,10 +37,6 @@
         <servlet-class>khoint.controllers.Equipment.DeleteEquipmentController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditEquipmentController</servlet-name>
-        <servlet-class>khoint.controllers.Equipment.EditEquipmentController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>UpdateEquipmentController</servlet-name>
         <servlet-class>khoint.controllers.Equipment.UpdateEquipmentController</servlet-class>
     </servlet>
@@ -55,6 +51,18 @@
     <servlet>
         <servlet-name>ViewAvengerController</servlet-name>
         <servlet-class>khoint.controllers.Avengers.ViewAvengerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAvengerController</servlet-name>
+        <servlet-class>khoint.controllers.Avengers.DeleteAvengerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertAvengerController</servlet-name>
+        <servlet-class>khoint.controllers.Avengers.InsertAvengerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAvengerController</servlet-name>
+        <servlet-class>khoint.controllers.Avengers.UpdateAvengerController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -93,10 +101,6 @@
         <url-pattern>/DeleteEquipmentController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditEquipmentController</servlet-name>
-        <url-pattern>/EditEquipmentController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>UpdateEquipmentController</servlet-name>
         <url-pattern>/UpdateEquipmentController</url-pattern>
     </servlet-mapping>
@@ -111,6 +115,18 @@
     <servlet-mapping>
         <servlet-name>ViewAvengerController</servlet-name>
         <url-pattern>/ViewAvengerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAvengerController</servlet-name>
+        <url-pattern>/DeleteAvengerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertAvengerController</servlet-name>
+        <url-pattern>/InsertAvengerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAvengerController</servlet-name>
+        <url-pattern>/UpdateAvengerController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

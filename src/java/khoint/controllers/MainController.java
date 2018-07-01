@@ -16,19 +16,22 @@ import javax.servlet.http.HttpServletResponse;
  * @author khoint0210
  */
 public class MainController extends HttpServlet {
-    
+
     private static final String ERROR = "error.jsp";
-    
+
     private static final String UPDATE_EQUIP = "UpdateEquipmentController";
     private static final String DELETE_EQUIP = "DeleteEquipmentController";
     private static final String SEARCH_EQUIP = "SearchEquipmentController";
     private static final String INSERT_EQUIP = "CreateNewEquipment";
     private static final String VIEW_EQUIP = "ViewEquipmentController";
     private static final String LIST_EQUIP = "ListAllEquipmentsController";
-    
+
     private static final String SEARCH_AVENGER = "SearchAvengerController";
     private static final String VIEW_AVENGER = "ViewAvengerController";
-    
+    private static final String DEL_AVENGER = "DeleteAvengerController";
+    private static final String INSERT_AVENGER = "InsertAvengerController";
+    private static final String UPDATE_AVENGER = "UpdateAvengerController";
+
     private static final String LOGIN = "LoginController";
     private static final String AVATAR = "UploadController";
     private static final String LIST = "ListAvengersController";
@@ -73,6 +76,12 @@ public class MainController extends HttpServlet {
                 url = SEARCH_AVENGER;
             } else if (action.equals("View Avenger") || action.equals("Back Avenger")) {
                 url = VIEW_AVENGER;
+            } else if (action.equals("Delete Avenger")) {
+                url = DEL_AVENGER;
+            } else if (action.equals("Insert New Avenger") || action.equals("Insert Avenger")) {
+                url = INSERT_AVENGER;
+            } else if (action.equals("Update Avenger") || action.equals("Edit Avenger")) {
+                url = UPDATE_AVENGER;
             } else {
                 request.setAttribute("ERROR", "Action is not support");
             }

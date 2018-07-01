@@ -39,7 +39,7 @@ public class DeleteEquipmentController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             JavaBean beans = new JavaBean();
             beans.setID(id);
-            if (beans.delete()) {
+            if (beans.deleteEquipment()) {
                 url = SUCCESS;
             } else {
                 request.setAttribute("ERROR", "Delete failed!");

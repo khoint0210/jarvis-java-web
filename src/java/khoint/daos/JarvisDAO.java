@@ -51,7 +51,6 @@ public class JarvisDAO implements Serializable {
                 int ID = rs.getInt("ID");
                 String username = rs.getString("Username");
                 String fullname = rs.getString("Fullname");
-                System.out.println("This is fullname : " + fullname);
                 String role = rs.getString("Role");
                 dto = new AvengersDTO(username, fullname, role, ID);
                 result.add(dto);
@@ -111,7 +110,68 @@ public class JarvisDAO implements Serializable {
         return avenger;
     }
 
-    
+    public boolean deleteAvenegr(int ID) throws Exception {
+        boolean check = false;
+        try {
+            String sql = "DELETE FROM Avengers WHERE ID = ?";
+            conn = MyConnection.getConnection();
+            preStm = conn.prepareStatement(sql);
+            preStm.setInt(1, ID);
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+
+    public boolean insertNewAvenger(AvengersDTO dto) throws Exception {
+        boolean check = false;
+        try {
+            String sql = "INSERT INTO Avengers(Username , Password, Fullname, MadeUpName, Role, Status, Age, Avatar, Drawback) \n"
+                    + "VALUES(?,?,?,?,?,?,?,?,?)";
+            conn = MyConnection.getConnection();
+            preStm = conn.prepareStatement(sql);
+            preStm.setString(1, dto.getUsername());
+            preStm.setString(2, dto.getPassword());
+            preStm.setString(3, dto.getFullname());
+            preStm.setString(4, dto.getMadeUpName());
+            preStm.setString(5, dto.getRole());
+            preStm.setInt(6, dto.getStatus());
+            preStm.setInt(7, dto.getAge());
+            preStm.setString(8, dto.getAvatar());
+            preStm.setString(9, dto.getDrawback());
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+
+    public boolean updateAvenger(AvengersDTO dto) throws Exception {
+        boolean check = false;
+        try {
+            String sql = "UPDATE Avengers \n"
+                    + "SET Username = ? , Password = ?, Fullname = ? , MadeUpName = ? , Role = ? , Status = ? , Age = ? , Avatar = ? , Drawback = ?  \n"
+                    + "WHERE ID = ?";
+            conn = MyConnection.getConnection();
+            preStm = conn.prepareStatement(sql);
+            preStm.setString(1, dto.getUsername());
+            preStm.setString(2, dto.getPassword());
+            preStm.setString(3, dto.getFullname());
+            preStm.setString(4, dto.getMadeUpName());
+            preStm.setString(5, dto.getRole());
+            preStm.setInt(6, dto.getStatus());
+            preStm.setInt(7, dto.getAge());
+            preStm.setString(8, dto.getAvatar());
+            preStm.setString(9, dto.getDrawback());
+            preStm.setInt(10, dto.getID());
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+
     public AvengersDTO login(String Username, String Password) throws Exception {
         AvengersDTO avengers = null;
         try {

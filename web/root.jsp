@@ -59,8 +59,20 @@
                                         <input type="submit" value="View Avenger" name="action" />
                                     </form>
                                 </td>
-                                <td>Update</td>
-                                <td>Delete</td>
+                                <td>
+                                    <form action="MainController" method="POST">
+                                        <input type="hidden" name="txtAvengerID" value="${item.ID}"/>
+                                        <input type="hidden" name="txtSearchAvenger" value="${param.txtSearchAvenger}" />
+                                        <input type="submit" value="Update Avenger" name="action" />
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="MainController" method="POST">
+                                        <input type="hidden" name="txtAvengerID" value="${item.ID}"/>
+                                        <input type="hidden" name="txtSearchAvenger" value="${param.txtSearchAvenger}" />
+                                        <input type="submit" value="Delete Avenger" name="action" />
+                                    </form>
+                                </td>
                             </tr>
                         </tbody>
                     </c:forEach>
