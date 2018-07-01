@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/ViewEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/MainController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/daos/JarvisDAO.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/admin.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/WEB-INF/web.xml</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/ListAvengersController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/EditEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/dtos/AvengersDTO.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/index.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/insert-equipment.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/UploadController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/beans/JavaBean.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/dtos/EquipmentsDTO.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/root.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/update-equipment.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/conn/MyConnection.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/CreateNewEquipment.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/SearchEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/LoginController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/user.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/DeleteEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/ListAllEquipmentsController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/LogoutController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/UpdateEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/list.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/view-equipment.jsp</file>
+        </group>
+    </open-files>
+</project-private>
