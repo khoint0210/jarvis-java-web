@@ -123,7 +123,9 @@
             <div>No record found</div>
         </c:if>
     </c:if> 
-
+    <font color="red">
+    ${requestScope.ERROR}
+    </font>
     <form action="MainController" method="POST">
         <input type="submit" value="Log Out" name="action" />
     </form>

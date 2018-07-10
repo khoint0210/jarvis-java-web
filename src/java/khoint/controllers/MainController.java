@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
+    private static final String UPLOAD = "UploadController";
 
     private static final String UPDATE_EQUIP = "UpdateEquipmentController";
     private static final String DELETE_EQUIP = "DeleteEquipmentController";
@@ -25,6 +27,9 @@ public class MainController extends HttpServlet {
     private static final String INSERT_EQUIP = "CreateNewEquipment";
     private static final String VIEW_EQUIP = "ViewEquipmentController";
     private static final String LIST_EQUIP = "ListAllEquipmentsController";
+
+    private static final String SEARCH_EQUIP_BY_AVENGER = "ListEquipByAvengerController";
+    private static final String UPDATE_ADMIN_EQUIPMENT = "UpdateAdminEquipment";
 
     private static final String SEARCH_AVENGER = "SearchAvengerController";
     private static final String VIEW_AVENGER = "ViewAvengerController";
@@ -49,44 +54,54 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         String url = ERROR;
         try {
-            String action = request.getParameter("action");
-            if (action.equals("Login")) {
-                url = LOGIN;
-            } else if (action.equals("Delete Equipment")) {
-                url = DELETE_EQUIP;
-            } else if (action.equals("Insert New Equipment") || action.equals("Insert Equipment")) {
-                url = INSERT_EQUIP;
-            } else if (action.equals("Update Equipment") || (action.equals("Edit Equipment"))) {
-                url = UPDATE_EQUIP;
-            } else if (action.equals("View Equipment") || action.equals("Back Equipment")) {
-                url = VIEW_EQUIP;
-            } else if (action.equals("Upload Avartar")) {
-                url = AVATAR;
-            } else if (action.equals("List All Avenger")) {
-                url = LIST;
-            } else if (action.equals("List All Equipments")) {
-                url = LIST_EQUIP;
-            } else if (action.equals("Log Out")) {
-                url = LOGOUT;
-            } else if (action.equals("Search Equipment")) {
-                url = SEARCH_EQUIP;
-            } else if (action.equals("Search Avenger")) {
-                url = SEARCH_AVENGER;
-            } else if (action.equals("View Avenger") || action.equals("Back Avenger")) {
-                url = VIEW_AVENGER;
-            } else if (action.equals("Delete Avenger")) {
-                url = DEL_AVENGER;
-            } else if (action.equals("Insert New Avenger") || action.equals("Insert Avenger")) {
-                url = INSERT_AVENGER;
-            } else if (action.equals("Update Avenger") || action.equals("Edit Avenger")) {
-                url = UPDATE_AVENGER;
+            if (isMultipart) {
+                url = UPLOAD;
             } else {
-                request.setAttribute("ERROR", "Action is not support");
+                String action = request.getParameter("action");
+                System.out.println(action);
+                if (action.equals("Login")) {
+                    url = LOGIN;
+                } else if (action.equals("Delete Equipment")) {
+                    url = DELETE_EQUIP;
+                } else if (action.equals("Insert New Equipment") || action.equals("Insert Equipment")) {
+                    url = INSERT_EQUIP;
+                } else if (action.equals("Update Equipment") || (action.equals("Edit Equipment"))) {
+                    url = UPDATE_EQUIP;
+                } else if (action.equals("View Equipment") || action.equals("Back Equipment")) {
+                    url = VIEW_EQUIP;
+                } else if (action.equals("Upload Avartar")) {
+                    url = AVATAR;
+                } else if (action.equals("List All Avenger")) {
+                    url = LIST;
+                } else if (action.equals("List All Equipments")) {
+                    url = LIST_EQUIP;
+                } else if (action.equals("Log Out")) {
+                    url = LOGOUT;
+                } else if (action.equals("Search Equipment")) {
+                    url = SEARCH_EQUIP;
+                } else if (action.equals("Search Avenger")) {
+                    url = SEARCH_AVENGER;
+                } else if (action.equals("View Avenger") || action.equals("Back Avenger")) {
+                    url = VIEW_AVENGER;
+                } else if (action.equals("Delete Avenger")) {
+                    url = DEL_AVENGER;
+                } else if (action.equals("Insert New Avenger") || action.equals("Insert Avenger")) {
+                    url = INSERT_AVENGER;
+                } else if (action.equals("Update Avenger") || action.equals("Edit Avenger")) {
+                    url = UPDATE_AVENGER;
+                } else if (action.equals("List Your Equipment")) {
+                    url = SEARCH_EQUIP_BY_AVENGER;
+                } else if (action.equals("Update Select Mark")) {
+                    url = UPDATE_ADMIN_EQUIPMENT;
+                } else {
+                    request.setAttribute("ERROR", "Action is not support");
+                }
             }
         } catch (Exception e) {
-            log("ERROR at MainController: " + e.getMessage());
+            log("ERROR at MainController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

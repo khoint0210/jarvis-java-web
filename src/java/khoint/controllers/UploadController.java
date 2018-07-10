@@ -5,12 +5,22 @@
  */
 package khoint.controllers;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import khoint.beans.JavaBean;
+import org.apache.tomcat.util.http.fileupload.FileItemFactory;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 
 /**
  *
@@ -30,7 +40,74 @@ public class UploadController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        HttpSession session = request.getSession();
+        int avengerID = (int) session.getAttribute("ID");
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        List items = null;
+        String action = null;
+        try {
+            items = upload.parseRequest(new ServletRequestContext(request));
+            Iterator iter = items.iterator();
+            String itemName = "";
+            String filename = "";
+            String uploadPath = "";
+            String realpath = "";
+            while (iter.hasNext()) {
+                FileItem item = (FileItem) iter.next();
+                if (!item.isFormField()) {
+                    action = item.getFieldName();
+                }
+                JavaBean bean = new JavaBean();
+                if (item.getName() != null) {
+                    itemName = item.getName();
+                    filename = itemName.substring(itemName.lastIndexOf("\\") + 1);
+                    uploadPath = "/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/image/" + filename;
+                    realpath = "/JARVIS_1.1/image/" + filename;
+                }
+                if (action.equals("Upload Avatar")) {
+                    try {
+                        if (filename.contains("jpg")) {
+                            File savedFile = new File(uploadPath);
+                            item.write(savedFile);
+                            bean.setID(avengerID);
+                            bean.setAvatarPath(realpath);
+                            if (!bean.updateAvatar()) {
+                                request.setAttribute("ERROR", "UNABLE TO UPDATE");
+                            }
+                        } else {
+                            request.setAttribute("ERROR", "UNABLE TO UPDATE");
+                        }
+                    } catch (Exception e) {
+                        log("Error at UploadController : " + e.toString());
+                    }
+                } else if (action.equals("Upload Equipment Avatar")) {
+                    try {
+                        int equipmentID = 0;
+                        if (item.isFormField()) {
+                            equipmentID = Integer.parseInt(item.getFieldName());
+                        }
+                        if (!item.isFormField()) {
+                            File savedFile = new File(uploadPath);
+                            item.write(savedFile);
+                        }
+                        bean.setID(equipmentID);
+                        bean.setAvatarPath(realpath);
+                        if (!bean.updateEquipmentAvatar()) {
+                            request.setAttribute("ERROR", "UNABLE TO UPDATE");
+                        } else {
+                            request.setAttribute("ERROR", "UPDATE AVATAR EQUIPMENT SUCCESS");
+                        }
+
+                    } catch (Exception e) {
+                        log("Error at UploadController : " + e.toString());
+                    }
+                }
+            }
+        } catch (FileUploadException e) {
+            log("Error at UploadController : " + e.toString());
+        }
+        request.getRequestDispatcher("CheckRoleAndAvengerInfo").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

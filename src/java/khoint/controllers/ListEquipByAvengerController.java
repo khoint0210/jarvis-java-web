@@ -7,24 +7,19 @@ package khoint.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import khoint.beans.JavaBean;
-import khoint.dtos.AvengersDTO;
+import khoint.dtos.EquipmentsDTO;
 
 /**
  *
  * @author khoint0210
  */
-public class LoginController extends HttpServlet {
-
-    private static final String ADMIN = "admin.jsp";
-    private static final String USER = "user.jsp";
-    private static final String ROOT = "root.jsp";
-    private static final String ERROR = "error.jsp";
+public class ListEquipByAvengerController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,34 +33,16 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
         try {
-            String username = request.getParameter("txtUsername");
-            String password = request.getParameter("txtPassword");
+            int txtAvengerID = Integer.parseInt(request.getParameter("txtAvengerID"));
             JavaBean bean = new JavaBean();
-            bean.setUsername(username);
-            bean.setPassword(password);
-            AvengersDTO avenger = bean.login();
-            if (avenger != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("NICKNAME", avenger.getMadeUpName());
-                session.setAttribute("ROLE", avenger.getRole());
-                session.setAttribute("ID", avenger.getID());
-                request.setAttribute("AVENGER_INFO", avenger);
-                if (avenger.getRole().equals("root")) {
-                    url = ROOT;
-                } else if (avenger.getRole().equals("admin")) {
-                    url = ADMIN;
-                } else if (avenger.getRole().equals("user")) {
-                    url = USER;
-                } else {
-                    request.setAttribute("ERROR", "WRONG USERNAME OR PASSWORD");
-                }
-            }
+            bean.setID(txtAvengerID);
+            List<EquipmentsDTO> result = bean.getEquipmentsByAvengerID();
+            request.setAttribute("EQUIPMENT_INFO", result);
         } catch (Exception e) {
-            log("Error at LoginController : " + e.getMessage());
+            log("Error at ListEquipByAvengerController : "+e.toString());
         } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            request.getRequestDispatcher("CheckRoleAndAvengerInfo").forward(request, response);
         }
     }
 

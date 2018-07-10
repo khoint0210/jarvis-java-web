@@ -14,7 +14,7 @@
     </head>
     <body>
         <c:if test="${requestScope.AVENGER_INFO.avatar != null}">
-            <img src="${requestScope.AVENGER_INFO.avatar}"/>
+            <img src="${requestScope.AVENGER_INFO.avatar}" width="320px" height="320px"/>
         </c:if>
         <div>full name : ${requestScope.AVENGER_INFO.fullname} </div>
         <div>age : ${requestScope.AVENGER_INFO.age} </div>

@@ -23,6 +23,16 @@ public class JavaBean implements Serializable {
 
     private String avengerName;
 
+    private String avatarPath;
+
+    public String getAvatarPath() {
+        return avatarPath;
+    }
+
+    public void setAvatarPath(String avatarPath) {
+        this.avatarPath = avatarPath;
+    }
+
     private AvengersDTO avengersDTO;
 
     public void setAvengersDTO(AvengersDTO avengersDTO) {
@@ -150,4 +160,24 @@ public class JavaBean implements Serializable {
         return dao.updateAvenger(avengersDTO);
     }
 
+    public List<EquipmentsDTO> getEquipmentsByAvengerID() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getEquipmentsByAvengerID(ID);
+    }
+
+    public boolean updateSelectedEquipmentAdmin() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.updateSelectedEquipmentAdmin(ID);
+    }
+
+    public boolean updateAvatar() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.updateAvatar(ID, avatarPath);
+    }
+
+    public boolean updateEquipmentAvatar() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        System.out.println(ID);
+        return dao.updateEquipmentAvatar(ID, avatarPath);
+    }
 }

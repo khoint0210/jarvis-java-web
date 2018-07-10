@@ -9,10 +9,6 @@
         <servlet-class>khoint.controllers.LoginController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UploadController</servlet-name>
-        <servlet-class>khoint.controllers.UploadController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ListAvengersController</servlet-name>
         <servlet-class>khoint.controllers.Avengers.ListAvengersController</servlet-class>
     </servlet>
@@ -64,6 +60,26 @@
         <servlet-name>UpdateAvengerController</servlet-name>
         <servlet-class>khoint.controllers.Avengers.UpdateAvengerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListEquipByAvengerController</servlet-name>
+        <servlet-class>khoint.controllers.ListEquipByAvengerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAdminEquipment</servlet-name>
+        <servlet-class>khoint.controllers.UpdateAdminEquipmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UploadController</servlet-name>
+        <servlet-class>khoint.controllers.UploadController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetAvengerController</servlet-name>
+        <servlet-class>khoint.controllers.GetAvengerController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckRoleAndAvengerInfo</servlet-name>
+        <servlet-class>khoint.controllers.CheckRoleAndAvengerInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -71,10 +87,6 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UploadController</servlet-name>
-        <url-pattern>/UploadController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListAvengersController</servlet-name>
@@ -127,6 +139,26 @@
     <servlet-mapping>
         <servlet-name>UpdateAvengerController</servlet-name>
         <url-pattern>/UpdateAvengerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListEquipByAvengerController</servlet-name>
+        <url-pattern>/ListEquipByAvengerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAdminEquipment</servlet-name>
+        <url-pattern>/UpdateAdminEquipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadController</servlet-name>
+        <url-pattern>/UploadController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAvengerController</servlet-name>
+        <url-pattern>/GetAvengerController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckRoleAndAvengerInfo</servlet-name>
+        <url-pattern>/CheckRoleAndAvengerInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

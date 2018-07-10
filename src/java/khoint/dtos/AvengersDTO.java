@@ -151,13 +151,6 @@ public class AvengersDTO implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "AvengersDTO{" + "username=" + username + ", password=" + password + ", fullname=" + fullname + ", madeUpName=" + madeUpName + ", role=" + role + ", avatar=" + avatar + ", drawback=" + drawback + ", ID=" + ID + ", status=" + status + ", age=" + age + '}';
-    }
-    
-    
+    }    
     
 }

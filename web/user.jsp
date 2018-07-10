@@ -14,19 +14,22 @@
     </head>
     <body>
         <h1>Hello ${sessionScope.NICKNAME}</h1>
+        <c:if test="${not empty requestScope.AVENGER_INFO.avatar}">
+            <img src="${requestScope.AVENGER_INFO.avatar}" width="320px" height="320px" />
+        </c:if>
         <form action="MainController" method="post" enctype="multipart/form-data">
-            <input name="uploadfile" type="file" size="50">
-            <input type="submit" value="Upload Avartar" />
+            <input name="Upload Avatar" type="file">
+            <input type="submit" value="Upload Avatar"/>
         </form>
-        <div>Your full name : ${requestScope.INFO.fullname} </div>
-        <div>Your age : ${requestScope.INFO.age} </div>
-        <div>Your draw back : ${requestScope.INFO.drawback} </div>
-        <div>Your role in team is : ${requestScope.INFO.role} </div>
+        <div>Your full name : ${requestScope.AVENGER_INFO.fullname} </div>
+        <div>Your age : ${requestScope.AVENGER_INFO.age} </div>
+        <div>Your draw back : ${requestScope.AVENGER_INFO.drawback} </div>
+        <div>Your role in team is : ${requestScope.AVENGER_INFO.role} </div>
         <div><h3>!!!! Notification !!!!</h3></div>
-        <c:if test="${requestScope.INFO.status == 0}">
+        <c:if test="${requestScope.AVENGER_INFO.status == 0}">
             <div>You are free</div>
         </c:if>
-        <c:if test="${requestScope.INFO.status == 1}">
+        <c:if test="${requestScope.AVENGER_INFO.status == 1}">
             <div>You have mission</div>
         </c:if>
         <br>

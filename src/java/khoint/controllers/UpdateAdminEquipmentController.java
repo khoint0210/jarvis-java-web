@@ -3,28 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package khoint.controllers.Avengers;
+package khoint.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import khoint.beans.JavaBean;
-import khoint.dtos.AvengersDTO;
 
 /**
  *
  * @author khoint0210
  */
-public class UpdateAvengerController extends HttpServlet {
+public class UpdateAdminEquipmentController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
-    private static final String UPDATE = "update-avenger.jsp";
-    private static final String SUCCESS = "ListAvengersController";
-    private static final String SUCCESS_SEARCH = "SearchAvengerController";
-
-    private static final String INVALID = "update.jsp";
+    private static final String LIST_EQUIP = "ListEquipByAvengerController";
+    private static final String SEAR_EQUIP = "error.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,41 +36,18 @@ public class UpdateAvengerController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-        JavaBean bean = new JavaBean();
         try {
-            String action = request.getParameter("action");
-            if (action.equals("Update Avenger")) {
-                int avengerID = Integer.parseInt(request.getParameter("txtAvengerID"));
-                bean.setID(avengerID);
-                AvengersDTO dto = bean.getAvengerByPrimaryKey();
-                request.setAttribute("AVENGER_INFO", dto);
-                url = UPDATE;
-            } else if (action.equals("Edit Avenger")) {
-                String txtSearchAvenger = request.getParameter("txtSearchAvenger");
-                int ID = Integer.parseInt(request.getParameter("txtAvengerID"));
-                String username = request.getParameter("txtUsername");
-                String password = request.getParameter("txtPassword");
-                String fullname = request.getParameter("txtFullname");
-                String madeUpName = request.getParameter("txtMadeUpName");
-                String role = request.getParameter("txtRole");
-                int status = Integer.parseInt(request.getParameter("txtStatus"));
-                int age = Integer.parseInt(request.getParameter("txtAge"));
-                String avatar = request.getParameter("txtAvatar");
-                String Drawback = request.getParameter("txtDrawBack");
-                AvengersDTO avengerDTO = new AvengersDTO(username, password, fullname, madeUpName, role, avatar, Drawback, ID, status, age);
-                bean.setAvengersDTO(avengerDTO);
-                if (bean.updateAvenger()) {
-                    if (txtSearchAvenger == null) {
-                        url = SUCCESS;
-                    } else {
-                        url = SUCCESS_SEARCH;
-                    }
-                } else {
-                    request.setAttribute("ERROR", "UNABLE TO UPDATE NEW EQUIPMENT");
-                }
+            int equipmentID = Integer.parseInt(request.getParameter("InUse"));
+            JavaBean bean = new JavaBean();
+            bean.setID(equipmentID);
+            boolean check = bean.updateSelectedEquipmentAdmin();
+            if (check) {
+                url = LIST_EQUIP;
+            } else {
+                request.setAttribute("ERROR", "UNABLE TO UPDATE ADMIN EQUIPMENTR");
             }
         } catch (Exception e) {
-            log("Error at UpdateAvengerController : " + e.toString());
+            log("Error at UpdateAdminEquipmentController : " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

@@ -113,7 +113,7 @@ public class JarvisDAO implements Serializable {
     public boolean deleteAvenegr(int ID) throws Exception {
         boolean check = false;
         try {
-            String sql = "DELETE FROM Avengers WHERE ID = ?";
+            String sql = "DELETE Avengers WHERE ID = ?";
             conn = MyConnection.getConnection();
             preStm = conn.prepareStatement(sql);
             preStm.setInt(1, ID);
@@ -199,21 +199,22 @@ public class JarvisDAO implements Serializable {
         return avengers;
     }
 
-    public List<EquipmentsDTO> getEquipmentsByAvengerID(String AvengerID) throws Exception {
+    public List<EquipmentsDTO> getEquipmentsByAvengerID(int AvengerID) throws Exception {
         List<EquipmentsDTO> result = null;
         EquipmentsDTO equipments = null;
         try {
             String sql = "Select * from Equipments where AvengerID = ?";
             conn = MyConnection.getConnection();
             preStm = conn.prepareStatement(sql);
-            preStm.setString(1, AvengerID);
+            preStm.setInt(1, AvengerID);
             rs = preStm.executeQuery();
             result = new ArrayList<>();
             while (rs.next()) {
                 int ID = rs.getInt("ID");
                 String name = rs.getString("Name");
                 String description = rs.getString("Description");
-                equipments = new EquipmentsDTO(ID, name, description);
+                int inUse = rs.getInt("InUse");
+                equipments = new EquipmentsDTO(ID, name, description, inUse);
                 result.add(equipments);
             }
         } finally {
@@ -277,7 +278,7 @@ public class JarvisDAO implements Serializable {
         EquipmentsDTO equipments = null;
         try {
 //            String sql = "Select * from Equipments where ID = ?";
-            String sql = "SELECT Equipments.ID, Equipments.Name,Equipments.AvengerID, Avengers.Fullname, Equipments.Description\n"
+            String sql = "SELECT Equipments.ID, Equipments.Name,Equipments.AvengerID, Avengers.Fullname, Equipments.Description, Equipments.Avatar\n"
                     + "FROM Avengers, Equipments \n"
                     + "WHERE Avengers.ID = Equipments.AvengerID AND Equipments.ID = ?;";
             conn = MyConnection.getConnection();
@@ -289,8 +290,9 @@ public class JarvisDAO implements Serializable {
                 String name = rs.getString("Name");
                 String description = rs.getString("Description");
                 String owner = rs.getString("Fullname");
+                String Avatar = rs.getString("Avatar");
                 int AvengerID = rs.getInt("AvengerID");
-                equipments = new EquipmentsDTO(ID, AvengerID, name, description, owner);
+                equipments = new EquipmentsDTO(ID, AvengerID, name, description, owner ,Avatar);
             }
         } finally {
             closeConnection();
@@ -361,6 +363,59 @@ public class JarvisDAO implements Serializable {
             preStm.setString(2, dto.getName());
             preStm.setString(3, dto.getDescription());
             preStm.setInt(4, dto.getID());
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+
+    public boolean updateSelectedEquipmentAdmin(int ID) throws Exception {
+        boolean check = false;
+        try {
+            String sql = "UPDATE Equipments\n"
+                    + "SET InUse = 0\n"
+                    + "WHERE InUse = 1 \n"
+                    + "UPDATE Equipments\n"
+                    + "SET InUse = 1\n"
+                    + "WHERE ID = ?";
+            conn = MyConnection.getConnection();
+            preStm = conn.prepareStatement(sql);
+            preStm.setInt(1, ID);
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+
+    public boolean updateAvatar(int ID, String avatarPath) throws Exception {
+        boolean check = false;
+        try {
+            String sql = "UPDATE Avengers \n"
+                    + "SET Avatar = ?\n"
+                    + "WHERE ID = ?;";
+            conn = MyConnection.getConnection();
+            preStm = conn.prepareStatement(sql);
+            preStm.setString(1, avatarPath);
+            preStm.setInt(2, ID);
+            check = preStm.executeUpdate() > 0;
+        } finally {
+            closeConnection();
+        }
+        return check;
+    }
+    
+        public boolean updateEquipmentAvatar(int ID, String avatarPath) throws Exception {
+        boolean check = false;
+        try {
+            String sql = "UPDATE Equipments \n"
+                    + "SET Avatar = ?\n"
+                    + "WHERE ID = ?;";
+            conn = MyConnection.getConnection();
+            preStm = conn.prepareStatement(sql);
+            preStm.setString(1, avatarPath);
+            preStm.setInt(2, ID);
             check = preStm.executeUpdate() > 0;
         } finally {
             closeConnection();

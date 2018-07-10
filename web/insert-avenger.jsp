@@ -16,7 +16,7 @@
         <form action="MainController" method="POST">
             <div>ID : ${param.txtAvengerID}</div>
             <div>Username  : <input type="text" name="txtUsername" /> </div>
-            <div>Password : <input type="text" name="txtPassword"/> </div>
+            <div>Password : <input type="password" name="txtPassword"/> </div>
             <div>Full name : <input type="text" name="txtFullname" /> </div>
             <div>Made Up Name : <input type="text" name="txtMadeUpName" /> </div>
             <div>Role  :  <input type="text" name="txtRole" /> </div>
