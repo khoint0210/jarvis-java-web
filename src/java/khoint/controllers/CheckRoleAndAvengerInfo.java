@@ -44,6 +44,7 @@ public class CheckRoleAndAvengerInfo extends HttpServlet {
             JavaBean bean = new JavaBean();
             bean.setID(avengerID);
             AvengersDTO avenger = bean.getAvengerByPrimaryKey();
+            request.setAttribute("GREETING", "HELLO JARVIS");
             request.setAttribute("AVENGER_INFO", avenger);
             switch (avenger.getRole()) {
                 case "root":

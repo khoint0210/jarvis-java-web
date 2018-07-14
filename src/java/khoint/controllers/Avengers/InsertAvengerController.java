@@ -6,7 +6,6 @@
 package khoint.controllers.Avengers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +47,7 @@ public class InsertAvengerController extends HttpServlet {
                 String fullname = request.getParameter("txtFullname");
                 String madeUpName = request.getParameter("txtMadeUpName");
                 String role = request.getParameter("txtRole");
-                int status = Integer.parseInt(request.getParameter("txtStatus"));
+                int status = 0;
                 int age = Integer.parseInt(request.getParameter("txtAge"));
                 String avatar = request.getParameter("txtAvatar");
                 String Drawback = request.getParameter("txtDrawBack");

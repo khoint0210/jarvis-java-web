@@ -10,6 +10,7 @@ import java.util.List;
 import khoint.daos.JarvisDAO;
 import khoint.dtos.AvengersDTO;
 import khoint.dtos.EquipmentsDTO;
+import khoint.dtos.MissionsDTO;
 
 /**
  *
@@ -22,6 +23,16 @@ public class JavaBean implements Serializable {
     private String equipmentName;
 
     private String avengerName;
+
+    private String missionName;
+
+    public String getMissionName() {
+        return missionName;
+    }
+
+    public void setMissionName(String missionName) {
+        this.missionName = missionName;
+    }
 
     private String avatarPath;
 
@@ -51,8 +62,23 @@ public class JavaBean implements Serializable {
     }
 
     private int ID;
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     private EquipmentsDTO equipmentsDTO;
+
+    private MissionsDTO missionsDTO;
+
+    public void setMissionsDTO(MissionsDTO missionsDTO) {
+        this.missionsDTO = missionsDTO;
+    }
 
     public void setEquipment(EquipmentsDTO equipment) {
         this.equipmentsDTO = equipment;
@@ -179,5 +205,65 @@ public class JavaBean implements Serializable {
         JarvisDAO dao = new JarvisDAO();
         System.out.println(ID);
         return dao.updateEquipmentAvatar(ID, avatarPath);
+    }
+
+    public List<MissionsDTO> getAllMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getAllMission();
+    }
+
+    public boolean deleteMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.deleteMission(ID);
+    }
+
+    public List<MissionsDTO> getMissionsLikeName() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getMissionLikeName(missionName);
+    }
+
+    public MissionsDTO getMissionByPrimarykey() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getMissionsByPrimaryKey(ID);
+    }
+
+    public List<AvengersDTO> getAvengerInMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getAvengerInMission(ID);
+    }
+
+    public int checkAvengerFreeOrNot() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.checkAvengerFreeOrNot(ID);
+    }
+
+    public List<MissionsDTO> getMissionByAvengerID() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getMissionInfoByAvengerID(ID);
+    }
+
+    public boolean updateMissionStatus() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.updateMissionStatus(ID, status);
+    }
+
+    public boolean insertNewMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.insertNewMission(missionsDTO);
+    }
+
+    public List<AvengersDTO> getAvengerNotOnThisMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.getAvengerNotOnThisMission(ID);
+    }
+
+    public boolean updateMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.updateMission(missionsDTO);
+    }
+
+    public boolean insertAvengerOnMission() throws Exception {
+        JarvisDAO dao = new JarvisDAO();
+        return dao.insertAvengerOnMission(ID,status);
     }
 }

@@ -3,38 +3,57 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/ViewEquipmentController.java</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/MainController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/InsertAvengerController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/view-avenger.jsp</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/daos/JarvisDAO.java</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/admin.jsp</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/WEB-INF/web.xml</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/ListAvengersController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/dtos/AvengersDTO.java</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/index.jsp</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/insert-equipment.jsp</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/UploadController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/beans/JavaBean.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/dtos/EquipmentsDTO.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/root.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/CheckRoleAndAvengerInfo.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/UpdateAvengerController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/GetMissionInfoByAvengerID.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/SearchEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/SearchMissionController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/SearchAvengerController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/update-avenger.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/dtos/MissionsDTO.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/LoginController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/insert-mission.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/DeleteEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/ListAllEquipmentsController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/ViewEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/MainController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/daos/JarvisDAO.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/admin.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/WEB-INF/web.xml</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/ListAvengersController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/DeleteAvengerController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/index.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/insert-equipment.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/DeleteMissionController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/UpdateMissionStatusController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/insert-avenger.jsp</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/update-equipment.jsp</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/conn/MyConnection.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/CreateNewEquipment.java</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/CheckRoleAndAvengerInfo.java</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/SearchEquipmentController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/CheckAvengerStatus.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/view-mission.jsp</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/ListEquipByAvengerController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/error.jsp</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/LoginController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/UpdateMissionControllers.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/ViewMissionController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Avengers/ViewAvengerController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/user.jsp</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/DeleteEquipmentController.java</file>
-            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/ListAllEquipmentsController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/css/index.css</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/LogoutController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Equipment/UpdateEquipmentController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/UpdateAdminEquipmentController.java</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/list.jsp</file>
             <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/view-equipment.jsp</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/ListAllMissionController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/src/java/khoint/controllers/Missions/InsertMissionController.java</file>
+            <file>file:/Users/khoint0210/NetBeansProjects/JARVIS_1.1/web/update-mission.jsp</file>
         </group>
     </open-files>
 </project-private>

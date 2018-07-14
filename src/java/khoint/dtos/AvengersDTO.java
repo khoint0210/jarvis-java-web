@@ -14,12 +14,12 @@ import java.io.Serializable;
 public class AvengersDTO implements Serializable {
 
     private String username, password, fullname, madeUpName, role, avatar, drawback;
-    private int ID, status, age;
+    private int ID, age;
 
     public AvengersDTO() {
     }
 
-    public AvengersDTO(String username, String password, String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int status, int age) {
+    public AvengersDTO(String username, String password, String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int age) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
@@ -28,24 +28,21 @@ public class AvengersDTO implements Serializable {
         this.avatar = avatar;
         this.drawback = drawback;
         this.ID = ID;
-        this.status = status;
-        this.age = age;
-    }
-    
-    public AvengersDTO(String username, String password, String fullname, String madeUpName, String role, String avatar, String drawback, int status, int age) {
-        this.username = username;
-        this.password = password;
-        this.fullname = fullname;
-        this.madeUpName = madeUpName;
-        this.role = role;
-        this.avatar = avatar;
-        this.drawback = drawback;
-        this.status = status;
         this.age = age;
     }
 
-    
-    public AvengersDTO(String username, String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int status, int age) {
+    public AvengersDTO(String username, String password, String fullname, String madeUpName, String role, String avatar, String drawback,  int age) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.madeUpName = madeUpName;
+        this.role = role;
+        this.avatar = avatar;
+        this.drawback = drawback;
+        this.age = age;
+    }
+
+    public AvengersDTO(String username, String fullname, String madeUpName, String role, String avatar, String drawback, int ID, int age) {
         this.username = username;
         this.fullname = fullname;
         this.madeUpName = madeUpName;
@@ -53,12 +50,9 @@ public class AvengersDTO implements Serializable {
         this.avatar = avatar;
         this.drawback = drawback;
         this.ID = ID;
-        this.status = status;
         this.age = age;
     }
-    
-    
-    
+
     public AvengersDTO(String username, String fullname, String role, int ID) {
         this.username = username;
         this.fullname = fullname;
@@ -71,8 +65,11 @@ public class AvengersDTO implements Serializable {
         this.ID = ID;
     }
 
-    
-    
+    public AvengersDTO(int ID, String madeUpName) {
+        this.madeUpName = madeUpName;
+        this.ID = ID;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -137,20 +134,12 @@ public class AvengersDTO implements Serializable {
         this.ID = ID;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
-    }    
-    
+    }
+
 }

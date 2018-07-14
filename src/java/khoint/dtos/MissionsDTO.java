@@ -12,9 +12,18 @@ import java.io.Serializable;
  * @author khoint0210
  */
 public class MissionsDTO implements Serializable{
-    private int ID;
+    private int ID,complete;
     private String name ,startDate, endDate, location;
 
+    public MissionsDTO(int ID, String name, String startDate, String endDate, String location) {
+        this.ID = ID;
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+    }
+
+    
     public MissionsDTO() {
     }
 
@@ -35,7 +44,7 @@ public class MissionsDTO implements Serializable{
     }
 
     public String getStartDate() {
-        return startDate;
+        return startDate.replace(" ", "T");
     }
 
     public void setStartDate(String startDate) {
@@ -43,7 +52,7 @@ public class MissionsDTO implements Serializable{
     }
 
     public String getEndDate() {
-        return endDate;
+        return endDate.replace(" ", "T");
     }
 
     public void setEndDate(String endDate) {
@@ -57,4 +66,35 @@ public class MissionsDTO implements Serializable{
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public int getComplete() {
+        return complete;
+    }
+
+    public void setComplete(int complete) {
+        this.complete = complete;
+    }
+
+    public MissionsDTO(int ID, int status, String name, String startDate, String endDate, String location) {
+        this.ID = ID;
+        this.complete = status;
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+    }
+
+    public MissionsDTO(String name, String startDate, String endDate, String location) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "MissionsDTO{" + "ID=" + ID + ", complete=" + complete + ", name=" + name + ", startDate=" + startDate + ", endDate=" + endDate + ", location=" + location + '}';
+    }
+    
+    
 }

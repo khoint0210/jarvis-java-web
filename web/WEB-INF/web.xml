@@ -80,6 +80,42 @@
         <servlet-name>CheckRoleAndAvengerInfo</servlet-name>
         <servlet-class>khoint.controllers.CheckRoleAndAvengerInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListAllMissionController</servlet-name>
+        <servlet-class>khoint.controllers.Missions.ListAllMissionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMissionController</servlet-name>
+        <servlet-class>khoint.controllers.Missions.DeleteMissionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchMissionController</servlet-name>
+        <servlet-class>khoint.controllers.Missions.SearchMissionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewMissionController</servlet-name>
+        <servlet-class>khoint.controllers.Missions.ViewMissionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckAvengerStatus</servlet-name>
+        <servlet-class>khoint.controllers.Avengers.CheckAvengerStatus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetMissionInfoByAvengerID</servlet-name>
+        <servlet-class>khoint.controllers.Missions.GetMissionInfoByAvengerID</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMissionStatusController</servlet-name>
+        <servlet-class>khoint.controllers.Missions.UpdateMissionStatusController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertMissionController</servlet-name>
+        <servlet-class>khoint.controllers.Missions.InsertMissionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMissionControllers</servlet-name>
+        <servlet-class>khoint.controllers.Missions.UpdateMissionControllers</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -159,6 +195,42 @@
     <servlet-mapping>
         <servlet-name>CheckRoleAndAvengerInfo</servlet-name>
         <url-pattern>/CheckRoleAndAvengerInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAllMissionController</servlet-name>
+        <url-pattern>/ListAllMissionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMissionController</servlet-name>
+        <url-pattern>/DeleteMissionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchMissionController</servlet-name>
+        <url-pattern>/SearchMissionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewMissionController</servlet-name>
+        <url-pattern>/ViewMissionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAvengerStatus</servlet-name>
+        <url-pattern>/CheckAvengerStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMissionInfoByAvengerID</servlet-name>
+        <url-pattern>/GetMissionInfoByAvengerID</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertMissionController</servlet-name>
+        <url-pattern>/InsertMissionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMissionStatusController</servlet-name>
+        <url-pattern>/UpdateMissionStatusController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMissionControllers</servlet-name>
+        <url-pattern>/UpdateMissionControllers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

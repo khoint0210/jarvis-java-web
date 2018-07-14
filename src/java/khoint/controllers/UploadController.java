@@ -67,7 +67,7 @@ public class UploadController extends HttpServlet {
                 }
                 if (action.equals("Upload Avatar")) {
                     try {
-                        if (filename.contains("jpg")) {
+                        if (filename.contains("jpg") || filename.contains("JPG") || filename.contains("png") || filename.contains("PNG")) {
                             File savedFile = new File(uploadPath);
                             item.write(savedFile);
                             bean.setID(avengerID);
@@ -83,20 +83,24 @@ public class UploadController extends HttpServlet {
                     }
                 } else if (action.equals("Upload Equipment Avatar")) {
                     try {
-                        int equipmentID = 0;
-                        if (item.isFormField()) {
-                            equipmentID = Integer.parseInt(item.getFieldName());
-                        }
-                        if (!item.isFormField()) {
-                            File savedFile = new File(uploadPath);
-                            item.write(savedFile);
-                        }
-                        bean.setID(equipmentID);
-                        bean.setAvatarPath(realpath);
-                        if (!bean.updateEquipmentAvatar()) {
-                            request.setAttribute("ERROR", "UNABLE TO UPDATE");
+                        if (filename.contains("jpg") || filename.contains("JPG") || filename.contains("png") || filename.contains("PNG")) {
+                            int equipmentID = 0;
+                            if (item.isFormField()) {
+                                equipmentID = Integer.parseInt(item.getFieldName());
+                            }
+                            if (!item.isFormField()) {
+                                File savedFile = new File(uploadPath);
+                                item.write(savedFile);
+                            }
+                            bean.setID(equipmentID);
+                            bean.setAvatarPath(realpath);
+                            if (!bean.updateEquipmentAvatar()) {
+                                request.setAttribute("ERROR", "UNABLE TO UPDATE");
+                            } else {
+                                request.setAttribute("ERROR", "UPDATE AVATAR EQUIPMENT SUCCESS");
+                            }
                         } else {
-                            request.setAttribute("ERROR", "UPDATE AVATAR EQUIPMENT SUCCESS");
+                            request.setAttribute("ERROR", "UNABLE TO UPDATE");
                         }
 
                     } catch (Exception e) {

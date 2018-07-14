@@ -6,7 +6,6 @@
 package khoint.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +23,7 @@ public class LoginController extends HttpServlet {
     private static final String ADMIN = "admin.jsp";
     private static final String USER = "user.jsp";
     private static final String ROOT = "root.jsp";
+    private static final String ERROR_LOGIN = "index.jsp";
     private static final String ERROR = "error.jsp";
 
     /**
@@ -53,14 +53,16 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("ID", avenger.getID());
                 request.setAttribute("AVENGER_INFO", avenger);
                 if (avenger.getRole().equals("root")) {
+                    request.setAttribute("GREETING", "HELLO JARVIS");
                     url = ROOT;
                 } else if (avenger.getRole().equals("admin")) {
                     url = ADMIN;
                 } else if (avenger.getRole().equals("user")) {
                     url = USER;
-                } else {
-                    request.setAttribute("ERROR", "WRONG USERNAME OR PASSWORD");
                 }
+            } else {
+                request.setAttribute("ERROR", "WRONG USERNAME OR PASSWORD");
+                url = ERROR_LOGIN;
             }
         } catch (Exception e) {
             log("Error at LoginController : " + e.getMessage());

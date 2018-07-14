@@ -56,11 +56,10 @@ public class UpdateAvengerController extends HttpServlet {
                 String fullname = request.getParameter("txtFullname");
                 String madeUpName = request.getParameter("txtMadeUpName");
                 String role = request.getParameter("txtRole");
-                int status = Integer.parseInt(request.getParameter("txtStatus"));
                 int age = Integer.parseInt(request.getParameter("txtAge"));
                 String avatar = request.getParameter("txtAvatar");
                 String Drawback = request.getParameter("txtDrawBack");
-                AvengersDTO avengerDTO = new AvengersDTO(username, password, fullname, madeUpName, role, avatar, Drawback, ID, status, age);
+                AvengersDTO avengerDTO = new AvengersDTO(username, password, fullname, madeUpName, role, avatar, Drawback, ID, age);
                 bean.setAvengersDTO(avengerDTO);
                 if (bean.updateAvenger()) {
                     if (txtSearchAvenger == null) {

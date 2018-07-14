@@ -10,11 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="css/error.css">
     </head>
     <body>
-        <h1>Hello Error ! </h1>
-        <font color="red">
-        ${requestScope.ERROR}
-        </font>
+        <h1>Whoops!</h1>
+        <p>Something went wrong</p>
+        <p>        
+            <font color="red">
+            ${requestScope.ERROR}
+            </font>
+        </p>
     </body>
 </html>
